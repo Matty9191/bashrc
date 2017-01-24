@@ -1,19 +1,19 @@
-VERSION=34
+VERSION=35
 
 # History settings 
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%F %T"
+shopt -s histappend
 
 # Terminal settings
 shopt -s checkwinsize
-shopt -s histappend
 
-# Grab a new version of the bashrc if its available
+# Location to pull bashrc from
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 
-# Take precaution when creating temp files
+# Take precaution when playing with temp files
 temp_name=$(mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
@@ -30,7 +30,7 @@ if [ ${RC} -eq 0 ]; then
     fi
 fi
 
-rm -f ${temp_file}
+rm ${temp_file}
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
