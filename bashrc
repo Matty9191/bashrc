@@ -1,9 +1,12 @@
-VERSION=13
+VERSION=14
 
 # History settings 
 export HISTFILESIZE=20000
 export HISTSIZE=10000
 export HISTCONTROL=ignoredups
+
+# Terminal settings
+shopt -s checkwinsize
 shopt -s histappend
 
 # Grab a new version of the bashrc if its available
