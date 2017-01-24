@@ -1,4 +1,4 @@
-VERSION=33
+VERSION=34
 
 # History settings 
 export HISTFILESIZE=100000
@@ -12,6 +12,8 @@ shopt -s histappend
 
 # Grab a new version of the bashrc if its available
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
+
+# Take precaution when creating temp files
 temp_name=$(mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
@@ -53,7 +55,7 @@ extract () {
 }
 
 # Run the last command with sudo  (thanks stackoverflow)
-s() { 
+ss() { 
     if [[ $# == 0 ]]; then
        sudo $(history -p '!!')
     else
@@ -66,6 +68,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Have some fun
 if [ -x /bin/cowsay ] && [ -x /bin/fortune ]; then
 	   fortune | cowsay
 fi
@@ -77,6 +80,8 @@ PS1='\n[\u@\h][RC:$?][\w]$ '
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
+
+# Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
 # alias ssh='if [ "$(ssh-add -l)" = "The agent has no identities." ]; then ssh-add; fi; /usr/bin/ssh "$@"'
 
