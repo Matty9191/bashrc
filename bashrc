@@ -1,4 +1,4 @@
-VERSION=25
+VERSION=26
 
 # History settings 
 export HISTFILESIZE=20000
@@ -76,6 +76,7 @@ PS1='\n[\u@\h][RC:$?][\w]$ '
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
+alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
 # alias ssh='if [ "$(ssh-add -l)" = "The agent has no identities." ]; then ssh-add; fi; /usr/bin/ssh "$@"'
 
 # Add private settings
