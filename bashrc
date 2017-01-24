@@ -1,7 +1,7 @@
-VERSION=28
+VERSION=30
 
 # History settings 
-export HISTFILESIZE=512000
+export HISTFILESIZE=10240
 export HISTSIZE=100000
 export HISTCONTROL=ignoredups
 
