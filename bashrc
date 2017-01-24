@@ -1,4 +1,4 @@
-VERSION=8
+VERSION=9
 
 # HIstory settings 
 export HISTFILESIZE=20000
@@ -13,11 +13,11 @@ temp_file="/tmp/${temp_name}"
 
 curl -s -o ${temp_file} ${bashrc_source}
 
-if [ $? = 0 ]; then
+if [ $? == 0 ]; then
     version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
     if [ "${version}" -gt "${VERSION}" ]; then
-	echo "Upgrading bashrc from version ${version} to ${VERSION}"
+	echo "Upgrading bashrc from version ${VERSION} to ${version}"
 	cp ${HOME}/.bashrc ${HOME}/.bashrc.bak.$(/bin/date "+%m%d%Y.%S")
 	mv ${temp_file} ${HOME}/.bashrc
     fi
