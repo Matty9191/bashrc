@@ -1,4 +1,4 @@
-VERSION=38
+VERSION=40
 
 # History settings 
 export HISTFILESIZE=100000
@@ -15,6 +15,8 @@ bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 
 # Take precaution when playing with temp files
 temp_file=$(mktemp /tmp/tmp.XXXXXXXX)
+touch ${temp_file}
+
 curl -s -o ${temp_file} ${bashrc_source}
 RC=$?
 
