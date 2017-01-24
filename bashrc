@@ -1,9 +1,9 @@
-VERSION=30
+VERSION=31
 
 # History settings 
 export HISTFILESIZE=10240
 export HISTSIZE=100000
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 
 # Terminal settings
 shopt -s checkwinsize
