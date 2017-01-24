@@ -75,6 +75,7 @@ PS1='\n[\u@\h]:[RC: $?][\w]$ '
 # User specific aliases and functions
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
+alias ecat="cat -vet ${1}"
 
 # Add private settings
 . ${HOME}/.private
