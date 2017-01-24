@@ -1,4 +1,4 @@
-VERSION=2
+VERSION=3
 
 # HIstory settings 
 export HISTFILESIZE=20000
@@ -7,7 +7,7 @@ shopt -s histappend
 HISTCONTROL=ignoredups
 
 # Location to fetch a bashrc from
-bashrc_source="https://raw.githubusercontent.com/Matty9191/auto-update-bashrc/master/bashrc"
+bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 temp_name=$(/usr/bin/mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
