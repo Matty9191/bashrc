@@ -1,22 +1,26 @@
-VERSION=4
+VERSION=8
 
 # HIstory settings 
 export HISTFILESIZE=20000
 export HISTSIZE=10000
+export HISTCONTROL=ignoredups
 shopt -s histappend
-HISTCONTROL=ignoredups
 
-# Location to fetch a bashrc from
+# Grab a new version of the bashrc if its available
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 temp_name=$(/usr/bin/mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
 curl -s -o ${temp_file} ${bashrc_source}
-version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
-if [ "${version}" -gt "${VERSION}" ]; then
+if [ $? = 0 ]; then
+    version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
+
+    if [ "${version}" -gt "${VERSION}" ]; then
+	echo "Upgrading bashrc from version ${version} to ${VERSION}"
 	cp ${HOME}/.bashrc ${HOME}/.bashrc.bak.$(/bin/date "+%m%d%Y.%S")
 	mv ${temp_file} ${HOME}/.bashrc
+    fi
 fi
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
