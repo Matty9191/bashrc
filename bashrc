@@ -1,4 +1,4 @@
-VERSION=3
+VERSION=4
 
 # HIstory settings 
 export HISTFILESIZE=20000
@@ -12,7 +12,7 @@ temp_name=$(/usr/bin/mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
 curl -s -o ${temp_file} ${bashrc_source}
-version=$(head -1 ${temp_file | awk -F'=' '/VERSION/ {print $2}')
+version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
 if [ "${version}" -gt "${VERSION}" ]; then
 	cp ${HOME}/.bashrc ${HOME}/.bashrc.bak.$(/bin/date "+%m%d%Y.%S")
