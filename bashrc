@@ -1,10 +1,10 @@
-VERSION=35
+VERSION=36
 
 # History settings 
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
-export HISTTIMEFORMAT="%F %T"
+export HISTTIMEFORMAT="%F %T "
 shopt -s histappend
 
 # Terminal settings
