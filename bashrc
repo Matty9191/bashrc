@@ -1,4 +1,4 @@
-VERSION=36
+VERSION=38
 
 # History settings 
 export HISTFILESIZE=100000
@@ -14,9 +14,7 @@ shopt -s checkwinsize
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 
 # Take precaution when playing with temp files
-temp_name=$(mktemp  tmp.XXXXXXXX)
-temp_file="/tmp/${temp_name}"
-
+temp_file=$(mktemp /tmp/tmp.XXXXXXXX)
 curl -s -o ${temp_file} ${bashrc_source}
 RC=$?
 
