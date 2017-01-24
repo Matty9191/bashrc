@@ -1,8 +1,8 @@
-VERSION=27
+VERSION=28
 
 # History settings 
-export HISTFILESIZE=20000
-export HISTSIZE=10000
+export HISTFILESIZE=512000
+export HISTSIZE=100000
 export HISTCONTROL=ignoredups
 
 # Terminal settings
