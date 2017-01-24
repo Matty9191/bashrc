@@ -1,9 +1,10 @@
-VERSION=31
+VERSION=32
 
 # History settings 
-export HISTFILESIZE=10240
+export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT=’%F %T ‘
 
 # Terminal settings
 shopt -s checkwinsize
