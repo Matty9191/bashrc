@@ -1,4 +1,4 @@
-VERSION=19
+VERSION=20
 
 # History settings 
 export HISTFILESIZE=20000
@@ -11,7 +11,7 @@ shopt -s histappend
 
 # Grab a new version of the bashrc if its available
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
-temp_name=$(/usr/bin/mktemp  tmp.XXXXXXXX)
+temp_name=$(mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
 curl -s -o ${temp_file} ${bashrc_source}
@@ -78,4 +78,4 @@ alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
 
 # Add private settings
-. ${HOME}/.private
+test -f ${HOME}/.private && . ${HOME}/.private
