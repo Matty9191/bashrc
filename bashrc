@@ -1,6 +1,6 @@
-VERSION=10
+VERSION=11
 
-# HIstory settings 
+# History settings 
 export HISTFILESIZE=20000
 export HISTSIZE=10000
 export HISTCONTROL=ignoredups
@@ -12,8 +12,9 @@ temp_name=$(/usr/bin/mktemp  tmp.XXXXXXXX)
 temp_file="/tmp/${temp_name}"
 
 curl -s -o ${temp_file} ${bashrc_source}
+RC=$?
 
-if [ $? == 0 ]; then
+if [ ${RC} -eq 0 ]; then
     version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
     if [ "${version}" -gt "${VERSION}" ]; then
