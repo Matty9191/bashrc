@@ -1,4 +1,4 @@
-VERSION=41
+VERSION=42
 
 # History settings 
 export HISTFILESIZE=100000
@@ -28,6 +28,8 @@ if [ ${RC} -eq 0 ]; then
 	cp ${HOME}/.bashrc ${HOME}/.bashrc.bak.$(/bin/date "+%m%d%Y.%S")
 	mv ${temp_file} ${HOME}/.bashrc
     fi
+else
+    echo "Unable to retrive bashrc from ${bashrc_source}"
 fi
 
 rm ${temp_file}
