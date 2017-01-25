@@ -1,4 +1,4 @@
-VERSION=46
+VERSION=47
 
 # History settings 
 export HISTFILESIZE=100000
@@ -70,7 +70,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Have some fun
-if [ -x /bin/cowsay ] && [ -x /bin/fortune ]; then
+if [ -x /bin/cowsay ] && [ -x /bin/fortune ] || 
+   [ -x /usr/games/cowsay ] && [ /usr/games/fortune ]; then
 	   fortune | cowsay
 fi
 
