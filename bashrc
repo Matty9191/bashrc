@@ -29,7 +29,7 @@ if [ ${RC} -eq 0 ]; then
 	mv ${temp_file} ${HOME}/.bashrc
     fi
 else
-    echo "Unable to retrive bashrc from ${bashrc_source}"
+    echo "Unable to retrieve a bashrc from ${bashrc_source}"
     rm ${temp_file}
 fi
 
