@@ -1,4 +1,4 @@
-VERSION=43
+VERSION=44
 
 # History settings 
 export HISTFILESIZE=100000
@@ -30,9 +30,8 @@ if [ ${RC} -eq 0 ]; then
     fi
 else
     echo "Unable to retrive bashrc from ${bashrc_source}"
+    rm ${temp_file}
 fi
-
-rm ${temp_file}
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
