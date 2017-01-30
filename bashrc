@@ -1,4 +1,4 @@
-VERSION=47
+VERSION=48
 
 # History settings 
 export HISTFILESIZE=100000
