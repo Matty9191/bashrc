@@ -91,7 +91,7 @@ if [ -x /bin/cowsay ] && [ -x /bin/fortune ] ||
 fi
 
 # Make PS 1 useful
-PS1='\n[\u@\h][RC:$?][\w]$ '
+PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
 
 # User specific aliases and functions
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
