@@ -1,4 +1,4 @@
-VERSION=49
+VERSION=50
 
 # License: 
 #  This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,6 @@ shopt -s checkwinsize
 # Location to pull bashrc from
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 
-# XXX Might want to package this as a function so you can apply it to .bash_profile too
 # Take precaution when playing with temp files
 temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
 
@@ -40,14 +39,12 @@ if [ ${RC} -eq 0 ]; then
     version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
     if [ "${version}" -gt "${VERSION}" ]; then
-# Code to offer options rather than auto-updating
-# echo 'There is a new version of .bashrc; see the changes with:'
-# echo '   cmp .bashrc ${temp_file}'
-# echo 'Install changes with:'
-# echo '   cp ${temp_file} .bashrc
+        # Code to offer options rather than auto-updating
+        # echo 'There is a new version of .bashrc; see the changes with:'
+        # echo '   cmp .bashrc ${temp_file}'
+        # echo 'Install changes with:'
+        # echo '   cp ${temp_file} .bashrc
 	echo "Upgrading bashrc from version ${VERSION} to ${version}"
-  # XXX Elsewhere you use "%F %T ", so you might want to use "%F-%T"
-  #     instead of what I suggest below
 	cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
 	mv ${temp_file} ${HOME}/.bashrc
     fi
