@@ -12,6 +12,7 @@ VERSION=49
 #  GNU General Public License for more detai
 
 # History settings 
+# XXX Is .bash_profile a better place for these exports?
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
@@ -24,8 +25,9 @@ shopt -s checkwinsize
 # Location to pull bashrc from
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 
+# XXX Might want to package this as a function so you can apply it to .bash_profile too
 # Take precaution when playing with temp files
-temp_file=$(mktemp /tmp/tmp.XXXXXXXX)
+temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
 
 curl -s -o ${temp_file} ${bashrc_source}
 RC=$?
@@ -34,8 +36,15 @@ if [ ${RC} -eq 0 ]; then
     version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 
     if [ "${version}" -gt "${VERSION}" ]; then
+# Code to offer options rather than auto-updating
+# echo 'There is a new version of .bashrc; see the changes with:'
+# echo '   cmp .bashrc ${temp_file}'
+# echo 'Install changes with:'
+# echo '   cp ${temp_file} .bashrc
 	echo "Upgrading bashrc from version ${VERSION} to ${version}"
-	cp ${HOME}/.bashrc ${HOME}/.bashrc.bak.$(/bin/date "+%m%d%Y.%S")
+  # XXX Elsewhere you use "%F %T ", so you might want to use "%F-%T"
+  #     instead of what I suggest below
+	cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
 	mv ${temp_file} ${HOME}/.bashrc
     fi
 else
@@ -47,17 +56,17 @@ fi
 extract () {
    if [ -f $1 ] ; then
        case $1 in
-           *.tar.bz2)   tar xvjf $1    ;;
-           *.tar.gz)    tar xvzf $1    ;;
-           *.bz2)       bunzip2 $1     ;;
-           *.rar)       unrar x $1       ;;
-           *.gz)        gunzip $1      ;;
-           *.tar)       tar xvf $1     ;;
-           *.tbz2)      tar xvjf $1    ;;
-           *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1       ;;
-           *.Z)         uncompress $1  ;;
-           *.7z)        7z x $1        ;;
+           *.tar.bz2)   tar        xvjf $1   ;;
+           *.tar.gz)    tar        xvzf $1   ;;
+           *.bz2)       bunzip2         $1   ;;
+           *.rar)       unrar      x    $1   ;;
+           *.gz)        gunzip          $1   ;;
+           *.tar)       tar        xvf  $1   ;;
+           *.tbz2)      tar        xvjf $1   ;;
+           *.tgz)       tar        xvzf $1   ;;
+           *.zip)       unzip           $1   ;;
+           *.Z)         uncompress      $1   ;;
+           *.7z)        7z         x    $1   ;;
            *)           echo "don't know how to extract '$1'..." ;;
        esac
    else
@@ -74,6 +83,7 @@ ss() {
     fi
 }
 
+# XXX Why not do this at the top of the file--you can then overlay your preferences on it
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -96,6 +106,8 @@ alias ecat="cat -vet ${1}"
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
 # alias ssh='if [ "$(ssh-add -l)" = "The agent has no identities." ]; then ssh-add; fi; /usr/bin/ssh "$@"'
+# set -o ignoreeof
+# shopt -s no_empty_cmd_completion
 
 # Add private settings
-test -f ${HOME}/.private && . ${HOME}/.private
+test -f ${HOME}/.private && source ${HOME}/.private
