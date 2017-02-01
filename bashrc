@@ -1,5 +1,10 @@
 VERSION=51
 
+# Author: Matty < matty91 at gmail dot com >
+# Last Updated: 02-01-2017
+# Version history:
+#   Version 51: Integrated several awesome suggestions from Stephen Cristol 
+#   Version  1: Initial Release
 # License: 
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
