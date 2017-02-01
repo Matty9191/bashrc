@@ -11,8 +11,12 @@ VERSION=49
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #  GNU General Public License for more detai
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # History settings 
-# XXX Is .bash_profile a better place for these exports?
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
@@ -82,12 +86,6 @@ ss() {
        sudo "$@"
     fi
 }
-
-# XXX Why not do this at the top of the file--you can then overlay your preferences on it
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
 
 # Have some fun
 if [ -x /bin/cowsay ] && [ -x /bin/fortune ] || 
