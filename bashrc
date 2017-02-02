@@ -1,8 +1,9 @@
-VERSION=53
+VERSION=54
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
 # Version history:
+#   Version 54: Added links to shortcuts and a few helpful aliases
 #   Version 53: Integrated several awesome suggestions from Stephen Cristol 
 #   Version  1: Initial Release
 # License: 
@@ -15,6 +16,21 @@ VERSION=53
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #  GNU General Public License for more detai
+
+### Cursor movement short cuts
+# ctrl-a - move the cursor to the beginning of the current line
+# ctrl-e - move the cursor to the end of the current line
+# alt-b - move the cursor backwards one word
+# alt-f - move the cursor forward one word
+# ctrl-k - delete from cursor to the end of the line
+# ctrl-u - delete from cursor to the beginning of the line
+# alt-d - delete the word in front of the cursor
+# ctrl-w - delete the word behind of the cursor
+
+### Shell command execution short cuts
+# !$ - all options to last command
+# ^ssss^s - replace sss w/ s in the last command
+
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -99,6 +115,9 @@ fi
 PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
 
 # User specific aliases and functions
+alias webshare=’python -c “import SimpleHTTPServer;SimpleHTTPServer.test()”‘
+alias uup=’apt update && && atp upgrade && apt dist-upgrade’
+alias cup='yum -y update'
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
