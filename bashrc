@@ -138,7 +138,7 @@ PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
 
 # User specific aliases and functions
 alias webshare="python -m SimpleHTTPServer 8000"
-alias uup="apt update && atp upgrade && apt dist-upgrade"
+alias uup="apt update && apt upgrade && apt dist-upgrade"
 alias cup="yum -y update"
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
