@@ -1,9 +1,9 @@
-VERSION=55
+VERSION=56
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
 # Version history:
-#   Version 54: Added links to shortcuts and a few helpful aliases
+#   Version 56: Added links to shortcuts and a few helpful aliases
 #   Version 53: Integrated several awesome suggestions from Stephen Cristol 
 #   Version  1: Initial Release
 # License: 
@@ -31,7 +31,6 @@ VERSION=55
 # !$ - all options to last command
 # ^ssss^s - replace sss w/ s in the last command
 
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -46,6 +45,10 @@ shopt -s histappend
 
 # Terminal settings
 shopt -s checkwinsize
+
+# Protect ourselves from errors and unset variables
+set -o nounset
+set -o errexit
 
 # Location to pull bashrc from
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
