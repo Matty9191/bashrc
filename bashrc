@@ -1,4 +1,4 @@
-VERSION=59
+VERSION=60
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -60,8 +60,8 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Protect ourselves from errors and unset variables
-set -o nounset
-set -o errexit
+# set -o nounset
+# set -o errexit
 # set -o pipefail
 
 # Location to pull bashrc from
