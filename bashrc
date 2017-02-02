@@ -1,4 +1,4 @@
-VERSION=57
+VERSION=58
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -26,6 +26,19 @@ VERSION=57
 # ctrl-u - delete from cursor to the beginning of the line
 # alt-d - delete the word in front of the cursor
 # ctrl-w - delete the word behind of the cursor
+
+### Equality operators
+# ||  logical or (double brackets only)
+# &&  logical and (double brackets only)
+# <   string comparison (no escaping necessary within double brackets)
+# -lt numerical comparison
+# =   string matching with globbing
+# ==  string matching with globbing (double brackets only, see below)
+# =~  string matching with regular expressions (double brackets only , see below)
+# -n  string is non-empty        
+# -z  string is empty
+# -eq  numerical equality
+# -ne  numerical inequality
 
 ### Shell command execution short cuts
 # !$ - all options to last command
@@ -108,6 +121,11 @@ ss() {
        sudo "$@"
     fi
 }
+
+# Remove comments from a file
+rc() {
+    egrep "^#" ${1}
+} 
 
 # Have some fun
 if [ -x /bin/cowsay ] && [ -x /bin/fortune ] || 
