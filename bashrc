@@ -1,4 +1,4 @@
-VERSION=54
+VERSION=55
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -115,9 +115,9 @@ fi
 PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
 
 # User specific aliases and functions
-alias webshare=’python -c “import SimpleHTTPServer;SimpleHTTPServer.test()”‘
-alias uup=’apt update && && atp upgrade && apt dist-upgrade’
-alias cup='yum -y update'
+alias webshare="python -m SimpleHTTPServer 8000"
+alias uup="apt update && && atp upgrade && apt dist-upgrade"
+alias cup="yum -y update"
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
@@ -130,3 +130,4 @@ alias ecat="cat -vet ${1}"
 
 # Add private settings
 test -f ${HOME}/.private && source ${HOME}/.private
+
