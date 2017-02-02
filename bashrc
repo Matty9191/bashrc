@@ -1,4 +1,4 @@
-VERSION=58
+VERSION=59
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -62,7 +62,7 @@ shopt -s checkwinsize
 # Protect ourselves from errors and unset variables
 set -o nounset
 set -o errexit
-set -o pipefail
+# set -o pipefail
 
 # Location to pull bashrc from
 bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
