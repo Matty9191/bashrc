@@ -1,4 +1,4 @@
-VERSION=63
+VERSION=64
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -149,6 +149,13 @@ alias ecat="cat -vet ${1}"
 # alias ssh='if [ "$(ssh-add -l)" = "The agent has no identities." ]; then ssh-add; fi; /usr/bin/ssh "$@"'
 # set -o ignoreeof
 # shopt -s no_empty_cmd_completion
+
+# Commands to remember
+# Wipe block device:
+# shred -v -z -n 10 /dev/sde 
+# Stress test a 4 CPU system
+# stress -c 4
+
 
 # Add private settings
 test -f ${HOME}/.private && source ${HOME}/.private
