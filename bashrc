@@ -1,4 +1,4 @@
-VERSION=64
+VERSION=65
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 02-01-2017
@@ -143,6 +143,7 @@ alias cup="yum -y update"
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
+alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
