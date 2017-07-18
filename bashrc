@@ -1,7 +1,7 @@
-VERSION=65
+VERSION=66
 
 # Author: Matty < matty91 at gmail dot com >
-# Last Updated: 02-01-2017
+# Last Updated: 07-18-2017
 # Version history:
 #   Version 56: Added links to shortcuts and a few helpful aliases
 #   Version 53: Integrated several awesome suggestions from Stephen Cristol 
@@ -58,6 +58,9 @@ shopt -s histappend
 
 # Terminal settings
 shopt -s checkwinsize
+
+# Default location to place virtual environments
+export WORKON_HOME=/home/matty/virtualenv
 
 # Protect ourselves from errors and unset variables
 # set -o nounset
