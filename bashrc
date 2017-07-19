@@ -1,4 +1,4 @@
-VERSION=67
+VERSION=68
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -61,6 +61,7 @@ shopt -s checkwinsize
 
 # Default location to place virtual environments
 export WORKON_HOME=/home/matty/virtualenv
+export PROJECT_HOME=/home/matty/virtualenv
 
 # Protect ourselves from errors and unset variables
 # set -o nounset
@@ -71,12 +72,12 @@ export WORKON_HOME=/home/matty/virtualenv
 # bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
 #
 # Take precaution when playing with temp files
-#temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
+# temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
 #
-#curl -s -o ${temp_file} ${bashrc_source}
-#RC=$?
+# curl -s -o ${temp_file} ${bashrc_source}
+# RC=$?
 #
-#if [ ${RC} -eq 0 ]; then
+# if [ ${RC} -eq 0 ]; then
 #    version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
 #
 #    if [ "${version}" -gt "${VERSION}" ]; then
@@ -89,10 +90,10 @@ export WORKON_HOME=/home/matty/virtualenv
 #	cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
 #	mv ${temp_file} ${HOME}/.bashrc
 #    fi
-#else
+# else
 #    echo "Unable to retrieve a bashrc from ${bashrc_source}"
 #    rm ${temp_file}
-#fi
+# fi
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
