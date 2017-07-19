@@ -164,4 +164,3 @@ alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 
 # Add private settings
 test -f ${HOME}/.private && source ${HOME}/.private
-
