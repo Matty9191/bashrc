@@ -1,4 +1,4 @@
-VERSION=68
+VERSION=69
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -142,6 +142,7 @@ PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
 
 # User specific aliases and functions
 alias webshare="python -m SimpleHTTPServer 8000"
+alias smtptestserver="python -m smtpd -c DebuggingServer -n localhost:8025"
 alias uup="apt update && apt upgrade && apt dist-upgrade"
 alias cup="yum -y update"
 alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
