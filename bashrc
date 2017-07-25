@@ -95,6 +95,12 @@ export PROJECT_HOME=/home/matty/virtualenv
 #    rm ${temp_file}
 # fi
 
+dnsfinger() {
+   domain=${1}
+
+   grep -F ${domain} /var/named/chroot/logs/named.queries | awk -F'[()]+' '{print $2}' | sort | uniq
+}
+
 # Uncompress the file passed as an argument (thanks stackoverflow)
 extract () {
    if [ -f $1 ] ; then
