@@ -95,6 +95,17 @@ export PROJECT_HOME=/home/matty/virtualenv
 #    rm ${temp_file}
 # fi
 
+nrange () {
+        lo=$1
+        hi=$2
+        while [ $lo -le $hi ]
+        do 
+                echo -n $lo " "
+                lo=`expr $lo + 1`
+        done
+}
+
+
 dnsfinger() {
    domain=${1}
 
