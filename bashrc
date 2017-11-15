@@ -95,6 +95,16 @@ export PROJECT_HOME=/home/matty/virtualenv
 #    rm ${temp_file}
 # fi
 
+dict () {
+        if [ "${1}" != "" ]
+        then     
+                lynx -cfg=/dev/null -dump "http://www.dictionary.com/cgi-bin/dict.pl?term=$1" | more
+        else
+                echo "USAGE: dict word"
+        fi
+}
+
+
 nrange () {
         lo=$1
         hi=$2
