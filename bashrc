@@ -95,7 +95,7 @@ export PROJECT_HOME=/home/matty/virtualenv
 #    rm ${temp_file}
 # fi
 
-dict () {
+dict() {
         if [ "${1}" != "" ]
         then     
                 lynx -cfg=/dev/null -dump "http://www.dictionary.com/cgi-bin/dict.pl?term=$1" | more
@@ -104,8 +104,7 @@ dict () {
         fi
 }
 
-
-nrange () {
+nrange() {
         lo=$1
         hi=$2
         while [ $lo -le $hi ]
