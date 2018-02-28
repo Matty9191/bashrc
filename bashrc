@@ -1,4 +1,4 @@
-VERSION=69
+VERSION=70
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -115,11 +115,16 @@ nrange () {
         done
 }
 
-
 dnsfinger() {
    domain=${1}
 
    grep -F ${domain} /var/named/chroot/logs/named.queries | awk -F'[()]+' '{print $2}' | sort | uniq
+}
+
+malloc() {
+    bytes=$((${1} * 1024*1024))
+    echo "Allocating ${bytes} of memory"
+    yes | tr \\n x | head -c ${bytes} | grep n
 }
 
 # Uncompress the file passed as an argument (thanks stackoverflow)
@@ -188,6 +193,13 @@ alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 # shred -v -z -n 10 /dev/sde 
 # Stress test a 4 CPU system
 # stress -c 4
+
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+    eval `ssh-agent`
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
 
 
 # Add private settings
