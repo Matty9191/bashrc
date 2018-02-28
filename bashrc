@@ -68,32 +68,32 @@ export PROJECT_HOME=/home/matty/virtualenv
 # set -o errexit
 # set -o pipefail
 
-# Location to pull bashrc from
-# bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
-#
-# Take precaution when playing with temp files
-# temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
-#
-# curl -s -o ${temp_file} ${bashrc_source}
-# RC=$?
-#
-# if [ ${RC} -eq 0 ]; then
-#    version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
-#
-#    if [ "${version}" -gt "${VERSION}" ]; then
-        # Code to offer options rather than auto-updating
-        # echo 'There is a new version of .bashrc; see the changes with:'
-        # echo '   cmp .bashrc ${temp_file}'
-        # echo 'Install changes with:'
-        # echo '   cp ${temp_file} .bashrc
-#	echo "Upgrading bashrc from version ${VERSION} to ${version}"
-#	cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
-#	mv ${temp_file} ${HOME}/.bashrc
-#    fi
-# else
-#    echo "Unable to retrieve a bashrc from ${bashrc_source}"
-#    rm ${temp_file}
-# fi
+# Update the bashrc to a newer version
+update() {
+    bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
+    temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
+
+    curl -s -o ${temp_file} ${bashrc_source}
+    RC=$?
+
+    if [ ${RC} -eq 0 ]; then
+        version=$(head -1 ${temp_file} | awk -F'=' '/VERSION/ {print $2}')
+
+        if [ "${version}" -gt "${VERSION}" ]; then
+            # Code to offer options rather than auto-updating
+            # echo 'There is a new version of .bashrc; see the changes with:'
+            # echo '   cmp .bashrc ${temp_file}'
+            # echo 'Install changes with:'
+            # echo '   cp ${temp_file} .bashrc
+            echo "Upgrading bashrc from version ${VERSION} to ${version}"
+            cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
+            mv ${temp_file} ${HOME}/.bashrc
+        fi
+    else
+        echo "Unable to retrieve a bashrc from ${bashrc_source}"
+        rm ${temp_file}
+    fi
+}
 
 dict() {
         if [ "${1}" != "" ]
