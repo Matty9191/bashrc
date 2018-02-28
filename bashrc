@@ -1,4 +1,4 @@
-VERSION=71
+VERSION=72
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -122,7 +122,7 @@ dnsfinger() {
 
 malloc() {
     bytes=$((${1} * 1024*1024))
-    echo "Allocating ${bytes} of memory"
+    echo "Allocating ${bytes}-bytes of memory"
     yes | tr \\n x | head -c ${bytes} | grep n
 }
 
