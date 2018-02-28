@@ -201,6 +201,10 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
+# Source the kubectl auto completion functions
+if [ -x /usr/local/bin/kubectl ]; then
+    source <(kubectl completion bash)
+fi
 
 # Add private settings
 test -f ${HOME}/.private && source ${HOME}/.private
