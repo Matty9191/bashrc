@@ -180,6 +180,8 @@ alias rd="/usr/bin/rdesktop -g 1024x768 ${1}:3389"
 alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
 alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
+alias k="kubectl"
+alias ks="kubectl -n kube-system"
 
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
