@@ -1,4 +1,4 @@
-VERSION=73
+VERSION=74
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -63,10 +63,23 @@ shopt -s checkwinsize
 export WORKON_HOME=/home/matty/virtualenv
 export PROJECT_HOME=/home/matty/virtualenv
 
+# GO workspace path
+GOPATH=$HOME/go
+
+
 # Protect ourselves from errors and unset variables
 # set -o nounset
 # set -o errexit
 # set -o pipefail
+
+# Create a new GO workspace if it doesn't exist
+gows() {
+    if [ ! -d "${GOPATH}" ]; then
+        echo "Setting up a go workspace in ${GOPATH}"
+        mkdir -p ${GOPATH} ${GOPATH}/src ${GOPATH}/bin ${GOPATH}/pkg
+        mkdir -p ${GOPATH}/src/github.com/Matty9191
+    fi
+}
 
 # Update the bashrc to a newer version
 update() {
