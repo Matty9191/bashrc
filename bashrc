@@ -1,4 +1,4 @@
-VERSION=72
+VERSION=73
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -87,7 +87,7 @@ update() {
             # echo '   cp ${temp_file} .bashrc
             echo "Upgrading bashrc from version ${VERSION} to ${version}"
             cp ${HOME}/.bashrc ${HOME}/.bashrc.$(/bin/date "+%Y%m%d.%H%M%S")
-            mv ${temp_file} ${HOME}/.bashrc
+            mv -f ${temp_file} ${HOME}/.bashrc
         fi
     else
         echo "Unable to retrieve a bashrc from ${bashrc_source}"
