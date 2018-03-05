@@ -195,6 +195,7 @@ alias ecat="cat -vet ${1}"
 alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 alias k="kubectl"
 alias ks="kubectl -n kube-system"
+alias shot="gnome-screenshot -i"
 
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
