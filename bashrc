@@ -1,4 +1,4 @@
-VERSION=75
+VERSION=76
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 07-18-2017
@@ -50,6 +50,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # History settings 
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/opt/VSCode-linux-x64
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
