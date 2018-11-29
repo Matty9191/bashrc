@@ -1,7 +1,7 @@
-VERSION=78
+VERSION=79
 
 # Author: Matty < matty91 at gmail dot com >
-# Last Updated: 07-18-2017
+# Last Updated: 11-29-2018
 # Version history:
 #   Version 56: Added links to shortcuts and a few helpful aliases
 #   Version 53: Integrated several awesome suggestions from Stephen Cristol 
@@ -72,6 +72,11 @@ GOPATH=$HOME/go
 # set -o nounset
 # set -o errexit
 # set -o pipefail
+
+# View markdown files from the command line
+vmd() {
+    pandoc "${1}" | lynx --stdin
+}
 
 # Create a new GO workspace if it doesn't exist
 gows() {
