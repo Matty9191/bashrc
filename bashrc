@@ -1,4 +1,4 @@
-VERSION=79
+VERSION=80
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
@@ -202,6 +202,7 @@ alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 alias k="kubectl"
 alias ks="kubectl -n kube-system"
 alias shot="gnome-screenshot -i"
+alias dracut_updatekernel="dracut -f –v"
 
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
