@@ -1,4 +1,4 @@
-VERSION=80
+VERSION=81
 
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
@@ -200,9 +200,12 @@ alias record="/usr/bin/cdrecord -v speed=8 dev=/dev/dvd ${1}"
 alias ecat="cat -vet ${1}"
 alias syncsystime="hwclock --set --date="`date "+%Y-%m-%d %H:%M:%S"`" --utc"
 alias k="kubectl"
-alias ks="kubectl -n kube-system"
 alias shot="gnome-screenshot -i"
 alias dracut_updatekernel="dracut -f –v"
+alias iptables-all="iptables -vL -t filter && iptables -vL -t nat && iptables -vL mange && iptables -vL -t raw && iptables -vL -t security"
+alias iptables-clean="iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X"
+alias ipconfig="ip -c a"
+
 
 # Aliases to be vetted
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
