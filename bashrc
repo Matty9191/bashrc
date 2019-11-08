@@ -1,11 +1,6 @@
-VERSION=81
-
+VERSION=82
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
-# Version history:
-#   Version 56: Added links to shortcuts and a few helpful aliases
-#   Version 53: Integrated several awesome suggestions from Stephen Cristol 
-#   Version  1: Initial Release
 # License: 
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,38 +11,6 @@ VERSION=81
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #  GNU General Public License for more detai
-
-### Cursor movement short cuts
-# ctrl-a - move the cursor to the beginning of the current line
-# ctrl-e - move the cursor to the end of the current line
-# alt-b - move the cursor backwards one word
-# alt-f - move the cursor forward one word
-# ctrl-k - delete from cursor to the end of the line
-# ctrl-u - delete from cursor to the beginning of the line
-# alt-d - delete the word in front of the cursor
-# ctrl-w - delete the word behind of the cursor
-
-### Equality operators
-# ||  logical or (double brackets only)
-# &&  logical and (double brackets only)
-# <   string comparison (no escaping necessary within double brackets)
-# -lt numerical comparison
-# =   string matching with globbing
-# ==  string matching with globbing (double brackets only, see below)
-# =~  string matching with regular expressions (double brackets only , see below)
-# -n  string is non-empty        
-# -z  string is empty
-# -eq  numerical equality
-# -ne  numerical inequality
-
-### Shell command execution short cuts
-# !$ - all options to last command
-# ^ssss^s - replace sss w/ s in the last command
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
 
 # History settings 
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/games:/opt/VSCode-linux-x64:/home/matty/bin
@@ -67,12 +30,6 @@ export PROJECT_HOME=/home/matty/virtualenv
 # GO workspace path
 GOPATH=$HOME/go
 
-
-# Protect ourselves from errors and unset variables
-# set -o nounset
-# set -o errexit
-# set -o pipefail
-
 # View markdown files from the command line
 vmd() {
     pandoc "${1}" | lynx --stdin
@@ -87,7 +44,7 @@ gows() {
     fi
 }
 
-# Update the bashrc to a newer version
+# Update bashrc to a newer version
 update() {
     bashrc_source="https://raw.githubusercontent.com/Matty9191/bashrc/master/bashrc"
     temp_file=$(mktemp /tmp/bash_auto_update_XXXXXXXX)
@@ -211,13 +168,6 @@ alias ipconfig="ip -c a"
 # alias myip="ip addr | grep -w inet | gawk '{if (NR==2) {$0=$2; gsub(/\//," "); print $1;}}'"
 # alias ssh='if [ "$(ssh-add -l)" = "The agent has no identities." ]; then ssh-add; fi; /usr/bin/ssh "$@"'
 # set -o ignoreeof
-# shopt -s no_empty_cmd_completion
-
-# Commands to remember
-# Wipe block device:
-# shred -v -z -n 10 /dev/sde 
-# Stress test a 4 CPU system
-# stress -c 4
 
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
     eval `ssh-agent`
