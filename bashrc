@@ -1,4 +1,4 @@
-VERSION=82
+VERSION=83
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
 # License: 
@@ -175,6 +175,10 @@ if [ ! -S ~/.ssh/ssh_auth_sock ]; then
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
+
+if [[ -x "$(command -v direnv)" ]]; then
+     eval "$(direnv hook bash)"
+fi
 
 # Source the kubectl auto completion functions
 if [ -x /usr/local/bin/kubectl ]; then
