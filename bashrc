@@ -1,4 +1,4 @@
-VERSION=84
+VERSION=85
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
 # License: 
@@ -20,9 +20,8 @@ export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%F %T "
 
 # Make PS 1 useful
-export ENVIRONMENT="home"
 prompt() {
-    export PS1="${CUSTOM_PS1:-\n[\u@$(hostname -f)][RC:$?][\w][ENV:${ENVIRONMENT}]$ }"
+    export PS1="${CUSTOM_PS1:-\n[\u@$(hostname -f)][RC:$?][\w]$ }"
 }
 PROMPT_COMMAND=prompt
 
