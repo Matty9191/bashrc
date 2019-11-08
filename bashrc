@@ -1,4 +1,4 @@
-VERSION=83
+VERSION=84
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
 # License: 
@@ -18,6 +18,16 @@ export HISTFILESIZE=100000
 export HISTSIZE=100000
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%F %T "
+
+# Make PS 1 useful
+export ENVIRONMENT="home"
+prompt() {
+    export PS1="${CUSTOM_PS1:-\n[\u@$(hostname -f)][RC:$?][\w][ENV:${ENVIRONMENT}]$ }"
+}
+PROMPT_COMMAND=prompt
+
+
+# Append to the history file
 shopt -s histappend
 
 # Terminal settings
@@ -144,9 +154,6 @@ if [ -x /bin/cowsay ] && [ -x /bin/fortune ] ||
 	   fortune | cowsay
 fi
 
-# Make PS 1 useful
-PS1='\n[\u@$(hostname -f)][RC:$?][\w]$ '
-
 # User specific aliases and functions
 alias webshare="python -m SimpleHTTPServer 8000"
 alias smtptestserver="python -m smtpd -c DebuggingServer -n localhost:8025"
@@ -176,13 +183,14 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
-if [[ -x "$(command -v direnv)" ]]; then
-     eval "$(direnv hook bash)"
+# Source the kubectl auto completion functions
+if [ -x $(command -v kubectl) ]; then
+    source <(kubectl completion bash)
 fi
 
-# Source the kubectl auto completion functions
-if [ -x /usr/local/bin/kubectl ]; then
-    source <(kubectl completion bash)
+# Use direnv to add variables to the environment
+if [[ -x "$(command -v direnv)" ]]; then
+    eval "$(direnv hook bash)"
 fi
 
 # Add private settings
