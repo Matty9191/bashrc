@@ -1,4 +1,4 @@
-VERSION=87
+VERSION=88
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
 # License: 
@@ -168,8 +168,8 @@ alias dracut_updatekernel="dracut -f –v"
 alias iptables-all="iptables -vL -t filter && iptables -vL -t nat && iptables -vL mange && iptables -vL -t raw && iptables -vL -t security"
 alias iptables-clean="iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X"
 alias ipconfig="ip -c a"
-alias dockerc="docker rm $(docker ps -a -q) "
-alias dockeric="docker rmi $(docker images | grep "^<none>" | awk "{print $3}")"
+alias dockerc='docker rm $(docker ps -a -q)'
+alias dockeric='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 
 
 # Aliases to be vetted
