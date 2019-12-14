@@ -1,4 +1,4 @@
-VERSION=88
+VERSION=89
 # Author: Matty < matty91 at gmail dot com >
 # Last Updated: 11-29-2018
 # License: 
@@ -185,7 +185,7 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
 # Source the kubectl auto completion functions
-if [ -x $(command -v kubectl) ]; then
+if [[ -x $(command -v kubectl) ]]; then
     source <(kubectl completion bash)
 fi
 
